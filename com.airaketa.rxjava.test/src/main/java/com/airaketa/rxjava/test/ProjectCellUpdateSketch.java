@@ -14,10 +14,10 @@ public class ProjectCellUpdateSketch
 	public static void main(String[] args) throws IOException
 	{
 		/*
-		 * Observable для вычисления лока на файл
-		 * по задумке кладется в объект проекта на presentation-уровне
-		 * (и таким образом "гуляет" между cell'ами)
-		 * при подписке на него - вычисляет, залочен ли файл воркспейса
+		 * Observable РґР»СЏ РІС‹С‡РёСЃР»РµРЅРёСЏ Р»РѕРєР° РЅР° С„Р°Р№Р»
+		 * РїРѕ Р·Р°РґСѓРјРєРµ РєР»Р°РґРµС‚СЃСЏ РІ РѕР±СЉРµРєС‚ РїСЂРѕРµРєС‚Р° РЅР° presentation-СѓСЂРѕРІРЅРµ
+		 * (Рё С‚Р°РєРёРј РѕР±СЂР°Р·РѕРј "РіСѓР»СЏРµС‚" РјРµР¶РґСѓ cell'Р°РјРё)
+		 * РїСЂРё РїРѕРґРїРёСЃРєРµ РЅР° РЅРµРіРѕ - РІС‹С‡РёСЃР»СЏРµС‚, Р·Р°Р»РѕС‡РµРЅ Р»Рё С„Р°Р№Р» РІРѕСЂРєСЃРїРµР№СЃР°
 		 */
 		Observable<Boolean> lockObservable = Observable.create(o -> {
 			System.out.println("determine whether the lock file is available");
@@ -25,8 +25,8 @@ public class ProjectCellUpdateSketch
 		});
 		
 		/*
-		 * Observable - цикличный таймер. Служит для выполнения одной и той же операции,
-		 * определенной в Observer'е циклично с фикисрованным временным интервалом
+		 * Observable - С†РёРєР»РёС‡РЅС‹Р№ С‚Р°Р№РјРµСЂ. РЎР»СѓР¶РёС‚ РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРґРЅРѕР№ Рё С‚РѕР№ Р¶Рµ РѕРїРµСЂР°С†РёРё,
+		 * РѕРїСЂРµРґРµР»РµРЅРЅРѕР№ РІ Observer'Рµ С†РёРєР»РёС‡РЅРѕ СЃ С„РёРєРёСЃСЂРѕРІР°РЅРЅС‹Рј РІСЂРµРјРµРЅРЅС‹Рј РёРЅС‚РµСЂРІР°Р»РѕРј
 		 */
 		Observable<Long> scheduler = Observable.interval(0, 5, TimeUnit.SECONDS);
 		Disposable subscription = scheduler.subscribe(v -> {
