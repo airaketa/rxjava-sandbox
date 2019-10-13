@@ -5,9 +5,9 @@ import io.reactivex.subjects.PublishSubject;
 public class StatusCodeSketch
 {
 	/*
-	 * Observer'ы подписываются заранее. Объект Subject'а всегда один и тот же
-	 * после того как в Subject поступает (emit) http статус код, Subject сообщает об этом
-	 * всем своим Observer'ам
+	 * Observer'С‹ РїРѕРґРїРёСЃС‹РІР°СЋС‚СЃСЏ Р·Р°СЂР°РЅРµРµ. РћР±СЉРµРєС‚ Subject'Р° РІСЃРµРіРґР° РѕРґРёРЅ Рё С‚РѕС‚ Р¶Рµ
+	 * РїРѕСЃР»Рµ С‚РѕРіРѕ РєР°Рє РІ Subject РїРѕСЃС‚СѓРїР°РµС‚ (emit) http СЃС‚Р°С‚СѓСЃ РєРѕРґ, Subject СЃРѕРѕР±С‰Р°РµС‚ РѕР± СЌС‚РѕРј
+	 * РІСЃРµРј СЃРІРѕРёРј Observer'Р°Рј
 	 */
 	private static PublishSubject<Integer> statusCodeSubject;
 	
@@ -16,7 +16,7 @@ public class StatusCodeSketch
 		PublishSubject<Integer> statusCodeSubject = getStatusCodeSubject();
 		statusCodeSubject.subscribe(code -> {
 			/*
-			 * если код 401 - обновляем токен
+			 * РµСЃР»Рё РєРѕРґ 401 - РѕР±РЅРѕРІР»СЏРµРј С‚РѕРєРµРЅ
 			 */
 			if (code == 401)
 			{
@@ -36,7 +36,7 @@ public class StatusCodeSketch
 	private static void makeRequests()
 	{
 		/*
-		 * "излучение" данных для Observer'ов
+		 * "РёР·Р»СѓС‡РµРЅРёРµ" РґР°РЅРЅС‹С… РґР»СЏ Observer'РѕРІ
 		 */
 		statusCodeSubject.onNext(200);
 		statusCodeSubject.onNext(200);
